@@ -2,7 +2,7 @@
 
 Aplicación de Streamlit que analiza currículums en PDF con IA (LangChain + OpenAI)
 frente a la descripción de un puesto de trabajo, y selecciona a los **2 mejores
-candidatos** para la entrevista final.
+candidatos y una lista alternativa** para la entrevista final.
 
 ## ✨ Características
 
@@ -77,6 +77,7 @@ Los parámetros principales se editan en `config/settings.py`:
 MODELO_IA = "gpt-4o-mini"
 TEMPERATURA = 0.6
 TOP_N_CANDIDATOS = 2
+MAX_ALTERNATIVOS = 2
 UMBRAL_EXCELENTE = 80      # >= 80  -> candidato excelente
 UMBRAL_INDIFERENTE = 50    # >= 50  -> candidato indiferente ; < 50 -> deficiente
 ```

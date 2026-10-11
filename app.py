@@ -14,9 +14,15 @@ from config.settings import (
     EXCELENTE,
     ICONO_CATEGORIA,
     INDIFERENTE,
+    MAX_ALTERNATIVOS,
 )
 from dotenv import load_dotenv
-from logica.analizador import analizar_candidato, clasificar_resultado, seleccionar_top
+from logica.analizador import (
+    analizar_candidato,
+    clasificar_resultado,
+    seleccionar_alternativos,
+    seleccionar_top,
+)
 from logica.lector_cv import LecturaCV, leer_cv
 from logica.modelo_cv import AnalisisCV
 
@@ -206,9 +212,26 @@ def _render_entrada() -> None:
     if not resultados:
         st.caption("Aún no hay candidatos seleccionados. Analiza para verlos aquí.")
     else:
-        for clave in seleccionar_top(resultados):
+        seleccionados = seleccionar_top(resultados)
+        for clave in seleccionados:
             analisis = resultados[clave]
-            st.markdown(f"👤 **{analisis.nombre_completo}** — {_contacto(analisis)}")
+            st.markdown(
+                f"👤 **{analisis.nombre_completo}** — "
+                f"{_contacto(analisis)} · {analisis.porcentaje_ajuste}%"
+            )
+
+        alternativos = seleccionar_alternativos(
+            resultados, set(seleccionados), MAX_ALTERNATIVOS
+        )
+        if alternativos:
+            st.divider()
+            st.markdown("**🔄 Candidatos alternativos**")
+            for clave in alternativos:
+                alternativo = resultados[clave]
+                st.markdown(
+                    f"👤 **{alternativo.nombre_completo}** — "
+                    f"{_contacto(alternativo)} · {alternativo.porcentaje_ajuste}%"
+                )
 
 
 def _render_resultado() -> None:

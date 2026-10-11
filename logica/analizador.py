@@ -1,5 +1,7 @@
 """Lógica de análisis de candidatos con el modelo de IA y selección del top N."""
 
+from typing import Any
+
 from langchain_core.messages import HumanMessage, SystemMessage
 from langchain_openai import ChatOpenAI
 
@@ -43,7 +45,7 @@ def _construir_mensajes(lectura: LecturaCV, descripcion_puesto: str) -> list:
             HumanMessage(content=contenido),
         ]
 
-    bloques: list[dict] = [
+    bloques: list[str | dict[str, Any]] = [
         {"type": "text", "text": f"{instrucciones}\n\n{CABECERA_IMAGEN_CV}"}
     ]
     for png in lectura.imagenes_png:
@@ -78,3 +80,17 @@ def seleccionar_top(
         reverse=True,
     )
     return [clave for clave, _ in ordenados[:n]]
+
+
+def seleccionar_alternativos(
+    resultados: dict[str, AnalisisCV],
+    seleccionados: set[str],
+    n: int,
+) -> list[str]:
+    """Devuelve los `n` candidatos con mayor ajuste que NO estén seleccionados."""
+    ordenados = sorted(
+        resultados.items(),
+        key=lambda item: item[1].porcentaje_ajuste,
+        reverse=True,
+    )
+    return [clave for clave, _ in ordenados if clave not in seleccionados][:n]

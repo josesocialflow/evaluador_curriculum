@@ -50,7 +50,7 @@ def leer_cv(ruta: Path) -> LecturaCV:
 
     try:
         texto = _extraer_texto(ruta)
-    except Exception as e:  # PDF corrupto, ilegible, etc.
+    except Exception as e:  # noqa: BLE001 - PDF corrupto, ilegible, etc.
         lectura.error = f"Error al leer el PDF: {e}"
         return lectura
 
@@ -61,7 +61,7 @@ def leer_cv(ruta: Path) -> LecturaCV:
     # Sin capa de texto -> intentamos renderizar para usar visión.
     try:
         lectura.imagenes_png = _renderizar_paginas(ruta)
-    except Exception as e:
+    except Exception as e:  # noqa: BLE001 - fallo al renderizar el PDF
         lectura.error = f"No se pudo extraer texto ni renderizar el PDF: {e}"
         return lectura
 

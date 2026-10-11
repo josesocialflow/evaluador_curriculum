@@ -21,6 +21,7 @@ MAX_PAGINAS_RENDER = 3
 
 # --- Selección y evaluación ------------------------------------------------
 TOP_N_CANDIDATOS = 2        # nº de candidatos que pasan a la entrevista
+MAX_ALTERNATIVOS = 2        # nº máximo de candidatos alternativos a mostrar
 UMBRAL_EXCELENTE = 80       # >= 80  -> candidato excelente
 UMBRAL_INDIFERENTE = 50     # >= 50  -> candidato indiferente ; < 50 -> deficiente
 
