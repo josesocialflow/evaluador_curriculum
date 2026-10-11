@@ -1,0 +1,32 @@
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+
+# --- Secretos y configuración local (¡no subir API keys!) ---
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+build/
+dist/
+
+# --- Cachés de herramientas ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyright/
+
+# --- IDE / editor ---
+.vscode/
+.idea/
+
+# --- Sistema operativo ---
+.DS_Store
+Thumbs.db

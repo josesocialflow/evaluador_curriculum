@@ -1,0 +1,27 @@
+Analista de Ciberseguridad (IT/OT) – Sector Agroalimentario / Industrial
+
+Experiencia: 2 a 4 años de experiencia en puestos de análisis o ingeniería de ciberseguridad.
+
+Ciberseguridad Industrial (OT): Conocimientos prácticos en la protección y monitorización de redes industriales (SCADA, PLC, sensores IoT) y protocolos como Modbus, Profinet o Ethernet/IP.
+
+Seguridad Web B2B (IT): Experiencia en la protección de aplicaciones web, portales de clientes y APIs (conocimientos en la guía OWASP Top 10 y auditoría de vulnerabilidades).
+
+Experiencia previa en el sector de la alimentación, bebidas o manufactura de bienes de consumo rápido (FMCG).
+
+Conocimiento de las particularidades de la cadena de suministro y trazabilidad alimentaria.
+
+Certificaciones profesionales reconocidas (p. ej., GICSP para ciberseguridad industrial, CompTIA Security+, CEH o GCIH).
+
+Monitorizar y blindar las redes industriales de automatización y horneado en planta para asegurar la continuidad de producción.
+
+Auditar y proteger el portal web B2B donde las panaderías y cafeterías gestionan sus pedidos diarios a granel y empaquetados.
+
+Responder a incidentes de seguridad tanto en entornos IT como en la red operacional de fábrica.
+
+Garantizar el cumplimiento de las regulaciones europeas de ciberseguridad para la cadena de suministro de alimentos.
+
+Conocimiento básico de lenguajes de scripting (Python, Bash) para la automatización de tareas de seguridad.
+
+Gestión de Incidentes y Amenazas: Manejo de herramientas SIEM/EDR para la detección temprana de anomalías en redes de fábrica y de oficina.
+
+Normativa y Cumplimiento: Familiaridad con estándares de seguridad industrial y cadena de suministro (como IEC 62443, ISO 27001 o la directiva europea NIS2).
