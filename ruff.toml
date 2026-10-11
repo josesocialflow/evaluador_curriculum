@@ -1,0 +1,10 @@
+# Configuración de Ruff para ProyectoCV_analyzer2.
+#
+# Declara "config" y "logica" como paquetes locales (primer partido) para que
+# el orden de los imports sea correcto y consistente, tanto si se ejecuta ruff
+# desde este directorio como desde la raíz de un workspace superior (p. ej. el
+# editor). Sin esto, ruff los trataría como dependencias externas y pediría
+# agruparlos con streamlit/langchain/pypdf.
+
+[lint.isort]
+known-first-party = ["config", "logica"]
