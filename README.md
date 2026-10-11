@@ -107,3 +107,4 @@ flowchart TD
   4 llamadas). Pulsa "Analizar candidatos" cuando tengas lista la descripción.
 - Si un CV no contiene texto ni se puede renderizar, la app lo indica en la
   columna izquierda.
+- Los requisitos de ejemplo para introducir en la aplicación se encuentran en el archivo requisitos_puesto.txt
