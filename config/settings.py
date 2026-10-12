@@ -12,7 +12,7 @@ DATA_CV_DIR = BASE_DIR / "data_cv"
 
 # --- Modelo de IA ----------------------------------------------------------
 MODELO_IA = "gpt-4o-mini"
-TEMPERATURA = 0.6
+TEMPERATURA = 0.2
 
 # --- Lectura de currículums ------------------------------------------------
 # Si un PDF no tiene capa de texto, se renderiza a imagen para usar visión.
