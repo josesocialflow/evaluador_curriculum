@@ -8,6 +8,8 @@ candidatos para la entrevista final.
 from pathlib import Path
 
 import streamlit as st
+from dotenv import load_dotenv
+
 from config.settings import (
     COLOR_CATEGORIA,
     DATA_CV_DIR,
@@ -16,7 +18,6 @@ from config.settings import (
     INDIFERENTE,
     MAX_ALTERNATIVOS,
 )
-from dotenv import load_dotenv
 from logica.analizador import (
     analizar_candidato,
     clasificar_resultado,

@@ -16,6 +16,10 @@ candidatos y una lista alternativa** para la entrevista final.
   y áreas de mejora.
 - Datos de contacto (teléfono o, en su defecto, correo) de los candidatos elegidos.
 
+## 🎬 Ver video de la aplicacion
+
+[![Ver video](https://img.youtube.com/vi/Se-YiqY1kBo/hqdefault.jpg)](https://www.youtube.com/watch?v=Se-YiqY1kBo)
+
 ## 📁 Estructura
 
 ```
