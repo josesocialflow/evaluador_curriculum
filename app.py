@@ -5,6 +5,7 @@ descripción de un puesto y presenta el resultado, seleccionando los 2 mejores
 candidatos para la entrevista final.
 """
 
+from collections.abc import Callable
 from pathlib import Path
 
 import streamlit as st
@@ -102,19 +103,26 @@ def _anterior_cv() -> None:
     st.session_state.indice = max(st.session_state.indice - 1, 0)
 
 
-def _analizar_todos(descripcion: str) -> None:
+def _analizar_todos(
+    descripcion: str,
+    on_progress: Callable[[float], object] | None = None,
+) -> None:
     """Analiza todos los candidatos frente a la descripción dada."""
     resultados: dict[str, AnalisisCV] = {}
     errores: dict[str, str] = {}
-    for ruta in st.session_state.candidatos:
+    candidatos = st.session_state.candidatos
+    total = len(candidatos) or 1
+    for i, ruta in enumerate(candidatos, 1):
         lectura = _obtener_lectura(ruta)
         if lectura.error:
             errores[ruta.name] = lectura.error
-            continue
-        try:
-            resultados[str(ruta)] = analizar_candidato(lectura, descripcion)
-        except Exception as e:  # noqa: BLE001 - se muestra al usuario
-            errores[ruta.name] = str(e)
+        else:
+            try:
+                resultados[str(ruta)] = analizar_candidato(lectura, descripcion)
+            except Exception as e:  # noqa: BLE001 - se muestra al usuario
+                errores[ruta.name] = str(e)
+        if on_progress is not None:
+            on_progress(i / total)
     st.session_state.resultados = resultados
     st.session_state.errores_analisis = errores
     st.session_state.descripcion_analizada = descripcion
@@ -192,8 +200,9 @@ def _render_entrada() -> None:
             if not descripcion:
                 st.warning("⚠️ Escribe primero la descripción del puesto.")
             else:
-                with st.spinner("Analizando candidatos con IA..."):
-                    _analizar_todos(descripcion)
+                barra = st.progress(0.0, text="Analizando candidatos con IA...")
+                _analizar_todos(descripcion, on_progress=barra.progress)
+                barra.empty()
                 st.toast("Análisis completado ✅")
     with col_b2:
         st.button(
